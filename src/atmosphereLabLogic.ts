@@ -1,3 +1,10 @@
+/*
+ * atmosphereLabLogic
+ *
+ * The non-UI rules behind the Simulation Lab, including readable labels and
+ * safe randomization of exposed fluid controls. Components ask this module for
+ * transformations; it must stay independent of React, the DOM, and hook state.
+ */
 import { controlRangeFor, fluidLabControls } from './asciiAtmosphereConfig'
 
 export function formatConfigLabel(key: string) {

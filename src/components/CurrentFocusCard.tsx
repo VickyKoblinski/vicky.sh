@@ -1,3 +1,10 @@
+/*
+ * CurrentFocusCard
+ *
+ * The compact summary card in the hero. It turns current-focus profile content
+ * into a readable status and list, without taking on hero layout or profile
+ * loading concerns.
+ */
 import type { Profile } from '../content/profile'
 
 type CurrentFocusCardProps = {

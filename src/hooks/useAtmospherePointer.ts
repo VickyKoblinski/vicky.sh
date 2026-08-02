@@ -1,3 +1,10 @@
+/*
+ * useAtmospherePointer
+ *
+ * The bridge between hero pointer events and the canvas's imperative API. It
+ * converts page-relative coordinates into atmosphere coordinates, but leaves
+ * fluid behavior and canvas rendering to their own modules.
+ */
 import { useRef, type PointerEventHandler, type RefObject } from 'react'
 import type { AsciiAtmosphereHandle } from '../AsciiAtmosphere'
 

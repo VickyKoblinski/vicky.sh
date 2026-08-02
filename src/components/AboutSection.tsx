@@ -1,3 +1,10 @@
+/*
+ * AboutSection
+ *
+ * The personal-introduction section of the portfolio. It receives already
+ * resolved profile content and only concerns itself with accessible layout;
+ * content selection and page-level composition belong outside this component.
+ */
 import type { Profile } from '../content/profile'
 import { kickerClass } from './siteStyles'
 

@@ -1,3 +1,9 @@
+/*
+ * SiteFooter
+ *
+ * The small closing section of the portfolio. It displays identity and GitHub
+ * data supplied by the page, without owning navigation rules or profile loading.
+ */
 import type { Profile } from '../content/profile'
 
 type SiteFooterProps = {

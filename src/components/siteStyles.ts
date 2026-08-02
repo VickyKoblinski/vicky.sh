@@ -1,3 +1,10 @@
+/*
+ * siteStyles
+ *
+ * A narrow home for Tailwind utility strings repeated by atmosphere development
+ * controls. Keep this limited to genuinely shared presentation details; unique
+ * component layout should stay next to the component that renders it.
+ */
 export const kickerClass =
   'm-0 mb-[17px] text-[.7rem] font-[650] uppercase tracking-[.09em] text-[#565869]'
 

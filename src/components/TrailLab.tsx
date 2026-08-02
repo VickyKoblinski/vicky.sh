@@ -1,3 +1,10 @@
+/*
+ * TrailLab
+ *
+ * The compact development-only panel for the most visible trail settings. It
+ * sends simple value changes to the settings controller and leaves simulation
+ * state, ranges, and fluid behavior to the appropriate config and hook modules.
+ */
 import type { PointerEventHandler } from 'react'
 import {
   asciiAtmosphereConfig,

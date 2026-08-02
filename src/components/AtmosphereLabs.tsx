@@ -1,3 +1,10 @@
+/*
+ * AtmosphereLabs
+ *
+ * The small coordinator for the two development-only atmosphere panels. It
+ * shares a settings controller with them and stops their native pointer events
+ * from reaching the hero; state updates themselves remain in the hook.
+ */
 import type { PointerEvent } from 'react'
 import type { AtmosphereSettingsController } from '../hooks/useAtmosphereSettings'
 import { SimulationLab } from './SimulationLab'

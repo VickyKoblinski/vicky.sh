@@ -1,3 +1,10 @@
+/*
+ * AsciiAtmosphere
+ *
+ * The imperative p5 canvas behind the hero's interactive ASCII trail. Parents
+ * provide the latest settings and send pointer coordinates through its ref; the
+ * fluid math itself belongs in asciiFluid rather than this React wrapper.
+ */
 import p5 from 'p5'
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
 import {

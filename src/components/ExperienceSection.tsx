@@ -1,3 +1,10 @@
+/*
+ * ExperienceSection
+ *
+ * The portfolio's experience timeline and featured current-role story. It owns
+ * this section's presentation, while profile content remains external and any
+ * future filtering or data rules should live outside the rendered markup.
+ */
 import type { Profile } from '../content/profile'
 import { kickerClass } from './siteStyles'
 

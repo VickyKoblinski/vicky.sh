@@ -1,3 +1,10 @@
+/*
+ * asciiAtmosphereConfig
+ *
+ * The single source of truth for the atmosphere's default preset, safe tuning
+ * ranges, and active configuration. UI controls read these values, while the
+ * simulation consumes the resolved settings rather than defining its own knobs.
+ */
 export type TrailSettings = {
   opacity: number
   size: number
@@ -60,7 +67,7 @@ export const defaultAtmospherePreset: {
       noiseScale: 0.06,
       noiseTimeScale: 0.002,
       curlStrength: 0.4,
-      pressureStrength: 0.14,
+      pressureStrength: 0.05,
       edgeRollStrength: 0.14,
       velocityDamping: 0.91,
       burstDecay: 0.9,

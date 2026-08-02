@@ -1,3 +1,9 @@
+/*
+ * SiteHeader
+ *
+ * The portfolio's name and primary navigation. It renders links from supplied
+ * profile data; route structure and page composition remain outside this header.
+ */
 import type { Profile } from '../content/profile'
 
 type SiteHeaderProps = {

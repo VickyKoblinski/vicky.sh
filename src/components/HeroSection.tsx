@@ -1,3 +1,10 @@
+/*
+ * HeroSection
+ *
+ * The interactive landing area for the site, combining the profile introduction,
+ * animated atmosphere, and optional development panels. Atmosphere hooks own
+ * pointer translation and settings; this component composes the visual pieces.
+ */
 import type { PointerEventHandler, ReactNode, RefObject } from 'react'
 import AsciiAtmosphere, { type AsciiAtmosphereHandle } from '../AsciiAtmosphere'
 import type {

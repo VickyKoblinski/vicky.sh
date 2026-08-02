@@ -1,3 +1,10 @@
+/*
+ * SimulationLab
+ *
+ * The detailed development-only interface for inspecting and tuning atmosphere
+ * settings. It receives all data and actions from the settings hook; simulation
+ * rules and state changes belong in the hook and utility modules, not this form.
+ */
 import type { PointerEventHandler } from 'react'
 import {
   asciiAtmosphereConfig,

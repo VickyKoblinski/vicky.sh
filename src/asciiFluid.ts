@@ -1,3 +1,10 @@
+/*
+ * asciiFluid
+ *
+ * The pure grid-fluid model behind the ASCII atmosphere. It owns density and
+ * velocity updates, while AsciiAtmosphere is responsible for canvas lifecycle
+ * and drawing. Keep React, DOM, and p5-specific concerns out of this module.
+ */
 import {
   getAsciiAtmosphereConfig,
   type GlyphBand,

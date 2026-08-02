@@ -23,6 +23,7 @@ Use React Testing Library to test visible, accessible behavior. Prefer role- and
 ## React and TypeScript practices
 
 - Use function components and strict TypeScript types; avoid `any`.
+- Start every component, hook, and utility module with a named `/* ... */` orientation block above its imports. Begin with the primary exported name, then explain its responsibility, important collaborators, and what belongs elsewhere. Make it useful for a future maintainer; do not narrate implementation details line by line.
 - Keep components small and single-purpose. Extract a component when it owns a distinct visual region, interaction, or reusable behavior—not merely to reduce line count.
 - A component should be easy to scan from its props to its rendered output. If it mixes several independent sections, deeply nested conditionals, or many unrelated event handlers, split it at the nearest meaningful UI boundary.
 - Keep leaf and presentational components focused on rendering accessible UI from typed props. They may hold local, purely presentational state such as an expanded panel or input focus state.

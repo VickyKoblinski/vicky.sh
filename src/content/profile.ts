@@ -1,3 +1,10 @@
+/*
+ * profile
+ *
+ * The profile-content boundary for the site. It loads committed placeholder
+ * copy and safely prefers the ignored private profile when one exists; page
+ * components consume the resolved object without knowing which source won.
+ */
 import mockProfile from './profile.mock.json'
 
 export type Profile = typeof mockProfile

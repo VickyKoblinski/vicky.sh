@@ -1,3 +1,10 @@
+/*
+ * App
+ *
+ * The page-level composition root for the portfolio. It selects profile content
+ * and connects shared atmosphere state to the hero; sections own their layout,
+ * while hooks own simulation state and browser-event coordination.
+ */
 import { AboutSection } from './components/AboutSection'
 import { AtmosphereLabs } from './components/AtmosphereLabs'
 import { ExperienceSection } from './components/ExperienceSection'

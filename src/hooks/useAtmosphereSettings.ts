@@ -1,3 +1,10 @@
+/*
+ * useAtmosphereSettings
+ *
+ * The stateful API behind the atmosphere controls. It exposes named updates,
+ * copying, and randomization actions to UI components; pure transformations
+ * belong in atmosphereLabLogic, not among hook state transitions.
+ */
 import { useState } from 'react'
 import {
   createAsciiAtmosphereConfig,
