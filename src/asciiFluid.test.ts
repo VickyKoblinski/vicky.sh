@@ -3,10 +3,10 @@ import { createFluid, glyphForDensity } from './asciiFluid'
 
 describe('ASCII fluid helpers', () => {
   it('maps density to the three glyph bands', () => {
-    expect(glyphForDensity(.2)).toBeNull()
-    expect(glyphForDensity(.62)?.glyph).toBe('—')
-    expect(glyphForDensity(.7)?.glyph).toBe('>')
-    expect(glyphForDensity(.9)?.glyph).toBe('o')
+    expect(glyphForDensity(0.2)).toBeNull()
+    expect(glyphForDensity(0.62)?.glyph).toBe('—')
+    expect(glyphForDensity(0.7)?.glyph).toBe('>')
+    expect(glyphForDensity(0.9)?.glyph).toBe('o')
   })
 
   it('creates a grid that covers the available space', () => {

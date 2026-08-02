@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --animate-drift-one: drift-one 15s ease-in-out infinite alternate;
@@ -6,14 +6,20 @@
   --animate-drift-three: drift-three 17s ease-in-out infinite alternate;
 
   @keyframes drift-one {
-    to { transform: translate(110px, 75px) scale(1.12); }
+    to {
+      transform: translate(110px, 75px) scale(1.12);
+    }
   }
 
   @keyframes drift-two {
-    to { transform: translate(-90px, 110px) scale(.86); }
+    to {
+      transform: translate(-90px, 110px) scale(0.86);
+    }
   }
 
   @keyframes drift-three {
-    to { transform: translate(140px, -75px) scale(1.07); }
+    to {
+      transform: translate(140px, -75px) scale(1.07);
+    }
   }
 }

@@ -1,7 +1,17 @@
 import p5 from 'p5'
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
-import { getAsciiAtmosphereConfig, initialTrailSettings, setAsciiAtmosphereConfig, type AsciiAtmosphereConfig } from './asciiAtmosphereConfig'
-import { createFluid, glyphForDensity, stepFluid, type FluidSettings } from './asciiFluid'
+import {
+  getAsciiAtmosphereConfig,
+  initialTrailSettings,
+  setAsciiAtmosphereConfig,
+  type AsciiAtmosphereConfig,
+} from './asciiAtmosphereConfig'
+import {
+  createFluid,
+  glyphForDensity,
+  stepFluid,
+  type FluidSettings,
+} from './asciiFluid'
 
 export type AsciiAtmosphereHandle = {
   burst: (x: number, y: number) => void
@@ -23,14 +33,32 @@ type PointerState = {
   pending: boolean
 }
 
-const AsciiAtmosphere = forwardRef<AsciiAtmosphereHandle, { settings: FluidSettings; config: AsciiAtmosphereConfig }>(function AsciiAtmosphere({ settings, config }, ref) {
+const AsciiAtmosphere = forwardRef<
+  AsciiAtmosphereHandle,
+  { settings: FluidSettings; config: AsciiAtmosphereConfig }
+>(function AsciiAtmosphere({ settings, config }, ref) {
   const hostRef = useRef<HTMLDivElement>(null)
-  const pointerRef = useRef<PointerState>({ x: -500, y: -500, previousX: -500, previousY: -500, lastStartX: -500, lastStartY: -500, lastEndX: -500, lastEndY: -500, inertia: 0, burst: 0, primed: false, pending: false })
+  const pointerRef = useRef<PointerState>({
+    x: -500,
+    y: -500,
+    previousX: -500,
+    previousY: -500,
+    lastStartX: -500,
+    lastStartY: -500,
+    lastEndX: -500,
+    lastEndY: -500,
+    inertia: 0,
+    burst: 0,
+    primed: false,
+    pending: false,
+  })
   const settingsRef = useRef(settings)
   const configRef = useRef(config)
 
   // p5 is created once; this ref supplies fresh slider values each frame.
-  useEffect(() => { settingsRef.current = settings }, [settings])
+  useEffect(() => {
+    settingsRef.current = settings
+  }, [settings])
   configRef.current = config
 
   useImperativeHandle(ref, () => ({
@@ -48,18 +76,35 @@ const AsciiAtmosphere = forwardRef<AsciiAtmosphereHandle, { settings: FluidSetti
       const movementDistance = Math.hypot(x - previousX, y - previousY)
       if (movementDistance > 0) {
         const fluid = getAsciiAtmosphereConfig().fluid
-        pointer.inertia = Math.min(fluid.maximumCoastInertia, movementDistance / fluid.coastSpeedDivisor)
+        pointer.inertia = Math.min(
+          fluid.maximumCoastInertia,
+          movementDistance / fluid.coastSpeedDivisor,
+        )
       }
       pointer.x = x
       pointer.y = y
       // A click made the field feel more alive, so the first genuine cursor entry gets
       // the same single-frame bloom. Subsequent stationary pointer events still inject nothing.
-      if (firstMovement) pointer.burst = getAsciiAtmosphereConfig().fluid.firstMovementBurst
+      if (firstMovement)
+        pointer.burst = getAsciiAtmosphereConfig().fluid.firstMovementBurst
       pointer.primed = true
       pointer.pending = true
     },
     burst(x, y) {
-      pointerRef.current = { x, y, previousX: x, previousY: y, lastStartX: x, lastStartY: y, lastEndX: x, lastEndY: y, inertia: 0, burst: 1, primed: true, pending: true }
+      pointerRef.current = {
+        x,
+        y,
+        previousX: x,
+        previousY: y,
+        lastStartX: x,
+        lastStartY: y,
+        lastEndX: x,
+        lastEndY: y,
+        inertia: 0,
+        burst: 1,
+        primed: true,
+        pending: true,
+      }
     },
   }))
 
@@ -76,7 +121,9 @@ const AsciiAtmosphere = forwardRef<AsciiAtmosphereHandle, { settings: FluidSetti
         const canvas = scene.createCanvas(host.clientWidth, host.clientHeight)
         canvas.elt.setAttribute('aria-hidden', 'true')
         const config = getAsciiAtmosphereConfig()
-        scene.pixelDensity(Math.min(devicePixelRatio, config.grid.maxPixelDensity))
+        scene.pixelDensity(
+          Math.min(devicePixelRatio, config.grid.maxPixelDensity),
+        )
         scene.colorMode(
           scene.HSB,
           config.color.hueMaximum,
@@ -99,7 +146,8 @@ const AsciiAtmosphere = forwardRef<AsciiAtmosphereHandle, { settings: FluidSetti
         // element cannot change which configuration the simulation is using.
         setAsciiAtmosphereConfig(configRef.current)
         const config = getAsciiAtmosphereConfig()
-        if (fluid.cellSize !== config.grid.cellSize) fluid = createFluid(scene.width, scene.height)
+        if (fluid.cellSize !== config.grid.cellSize)
+          fluid = createFluid(scene.width, scene.height)
         scene.colorMode(
           scene.HSB,
           config.color.hueMaximum,
@@ -111,12 +159,32 @@ const AsciiAtmosphere = forwardRef<AsciiAtmosphereHandle, { settings: FluidSetti
         const pointer = pointerRef.current
         const hadFreshMovement = pointer.pending
         const trail = pointer.pending
-          ? { startX: pointer.previousX, startY: pointer.previousY, endX: pointer.x, endY: pointer.y, burst: pointer.burst }
+          ? {
+              startX: pointer.previousX,
+              startY: pointer.previousY,
+              endX: pointer.x,
+              endY: pointer.y,
+              burst: pointer.burst,
+            }
           : pointer.inertia > config.fluid.coastThreshold
-            ? { startX: pointer.lastStartX, startY: pointer.lastStartY, endX: pointer.lastEndX, endY: pointer.lastEndY, burst: 0, coasting: true, inertia: pointer.inertia }
+            ? {
+                startX: pointer.lastStartX,
+                startY: pointer.lastStartY,
+                endX: pointer.lastEndX,
+                endY: pointer.lastEndY,
+                burst: 0,
+                coasting: true,
+                inertia: pointer.inertia,
+              }
             : undefined
 
-        stepFluid(fluid, settingsRef.current, scene.frameCount, (x, y, z) => scene.noise(x, y, z), trail)
+        stepFluid(
+          fluid,
+          settingsRef.current,
+          scene.frameCount,
+          (x, y, z) => scene.noise(x, y, z),
+          trail,
+        )
 
         if (pointer.pending) {
           pointer.previousX = pointer.x
@@ -127,26 +195,39 @@ const AsciiAtmosphere = forwardRef<AsciiAtmosphereHandle, { settings: FluidSetti
         pointer.burst *= config.fluid.burstDecay
 
         scene.clear()
-        for (let y = 0; y < fluid.rows; y += 1) for (let x = 0; x < fluid.columns; x += 1) {
-          const glyph = glyphForDensity(fluid.density[y * fluid.columns + x])
-          if (!glyph) continue
+        for (let y = 0; y < fluid.rows; y += 1)
+          for (let x = 0; x < fluid.columns; x += 1) {
+            const glyph = glyphForDensity(fluid.density[y * fluid.columns + x])
+            if (!glyph) continue
 
-          scene.fill(
-            config.color.hue,
-            config.color.saturation,
-            config.color.brightness,
-            glyph.shade * (settingsRef.current.opacity / initialTrailSettings.opacity),
-          )
-          scene.textSize(glyph.fontSize)
-          scene.text(glyph.glyph, x * fluid.cellSize + fluid.cellSize / 2, y * fluid.cellSize + fluid.cellSize / 2)
-        }
+            scene.fill(
+              config.color.hue,
+              config.color.saturation,
+              config.color.brightness,
+              glyph.shade *
+                (settingsRef.current.opacity / initialTrailSettings.opacity),
+            )
+            scene.textSize(glyph.fontSize)
+            scene.text(
+              glyph.glyph,
+              x * fluid.cellSize + fluid.cellSize / 2,
+              y * fluid.cellSize + fluid.cellSize / 2,
+            )
+          }
       }
     }, host)
 
     return () => sketch.remove()
   }, [])
 
-  return <div ref={hostRef} className="absolute inset-0 size-full" role="img" aria-label="Interactive ASCII atmosphere" />
+  return (
+    <div
+      ref={hostRef}
+      className="absolute inset-0 size-full"
+      role="img"
+      aria-label="Interactive ASCII atmosphere"
+    />
+  )
 })
 
 export default AsciiAtmosphere

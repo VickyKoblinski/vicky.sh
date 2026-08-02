@@ -26,11 +26,17 @@ export default function App() {
         onPointerMove={atmospherePointer.handlePointerMove}
         onPointerDown={atmospherePointer.handlePointerDown}
       >
-        {showAtmosphereLabs ? <AtmosphereLabs controller={atmosphereSettings} /> : null}
+        {showAtmosphereLabs ? (
+          <AtmosphereLabs controller={atmosphereSettings} />
+        ) : null}
       </HeroSection>
       <ExperienceSection experience={profile.experience} />
       <AboutSection about={profile.about} />
-      <SiteFooter name={profile.name} githubUrl={profile.links.github} githubLabel={profile.links.githubLabel} />
+      <SiteFooter
+        name={profile.name}
+        githubUrl={profile.links.github}
+        githubLabel={profile.links.githubLabel}
+      />
     </main>
   )
 }

@@ -4,6 +4,8 @@
 
 - `npm run dev` starts the local app.
 - `npm run lint` checks lint rules.
+- `npm run format` formats the project with Prettier and sorts Tailwind classes.
+- `npm run format:check` checks formatting without writing changes.
 - `npm test` runs the Vitest suite once.
 - `npm run test:watch` runs tests interactively.
 - `npm run build` type-checks and creates a production build.
@@ -14,7 +16,7 @@
 2. Run it and confirm it fails for the intended reason.
 3. Implement the smallest change that makes it pass.
 4. Refactor only while the test suite remains green.
-5. Before committing, run `npm run lint`, `npm test`, and `npm run build`.
+5. Before committing, run `npm run format:check`, `npm run lint`, `npm test`, and `npm run build`.
 
 Use React Testing Library to test visible, accessible behavior. Prefer role- and label-based queries; do not assert implementation details, component internals, or CSS class names unless styling itself is the requirement.
 

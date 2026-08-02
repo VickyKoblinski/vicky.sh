@@ -7,6 +7,8 @@ describe('resolveProfile', () => {
   })
 
   it('prefers a private profile when one is available', () => {
-    expect(resolveProfile({ name: 'Mock' }, { name: 'Private' })).toEqual({ name: 'Private' })
+    expect(resolveProfile({ name: 'Mock' }, { name: 'Private' })).toEqual({
+      name: 'Private',
+    })
   })
 })

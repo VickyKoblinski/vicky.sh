@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest'
-import { asciiAtmosphereConfig, controlRangeFor, fluidLabControls } from './asciiAtmosphereConfig'
+import {
+  asciiAtmosphereConfig,
+  controlRangeFor,
+  fluidLabControls,
+} from './asciiAtmosphereConfig'
 import { formatConfigLabel, randomizeFluidConfig } from './atmosphereLabLogic'
 
 describe('atmosphere lab logic', () => {

@@ -8,13 +8,19 @@ type AtmosphereLabsProps = {
 }
 
 export function AtmosphereLabs({ controller }: AtmosphereLabsProps) {
-  function keepLabPointerOutOfAtmosphere(event: PointerEvent<HTMLDetailsElement>) {
+  function keepLabPointerOutOfAtmosphere(
+    event: PointerEvent<HTMLDetailsElement>,
+  ) {
     event.stopPropagation()
   }
 
   return (
     <>
-      <TrailLab settings={controller.trailSettings} onSettingChange={controller.setTrailSetting} onPointerEvent={keepLabPointerOutOfAtmosphere} />
+      <TrailLab
+        settings={controller.trailSettings}
+        onSettingChange={controller.setTrailSetting}
+        onPointerEvent={keepLabPointerOutOfAtmosphere}
+      />
       <SimulationLab
         trailSettings={controller.trailSettings}
         atmosphereConfig={controller.atmosphereConfig}

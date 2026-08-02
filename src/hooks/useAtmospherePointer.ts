@@ -17,12 +17,18 @@ export function useAtmospherePointer(): AtmospherePointerControls {
     if (!hero) return
 
     const bounds = hero.getBoundingClientRect()
-    atmosphereRef.current?.move(event.clientX - bounds.left, event.clientY - bounds.top)
+    atmosphereRef.current?.move(
+      event.clientX - bounds.left,
+      event.clientY - bounds.top,
+    )
   }
 
   function handlePointerDown(event: React.PointerEvent<HTMLElement>) {
     const bounds = event.currentTarget.getBoundingClientRect()
-    atmosphereRef.current?.burst(event.clientX - bounds.left, event.clientY - bounds.top)
+    atmosphereRef.current?.burst(
+      event.clientX - bounds.left,
+      event.clientY - bounds.top,
+    )
   }
 
   return { heroRef, atmosphereRef, handlePointerMove, handlePointerDown }
