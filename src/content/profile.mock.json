@@ -1,0 +1,41 @@
+{
+  "name": "Lorem Ipsum",
+  "links": {
+    "github": "https://github.com/example",
+    "githubLabel": "example.com"
+  },
+  "hero": {
+    "kicker": "Lorem ipsum · dolor sit amet",
+    "role": "Dolor Sit Amet",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "workLinkLabel": "Lorem ipsum"
+  },
+  "currentFocus": {
+    "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "items": ["Lorem ipsum", "Dolor sit", "Consectetur"]
+  },
+  "experience": {
+    "title": "Lorem ipsum dolor.",
+    "intro": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "positions": [
+      { "company": "Lorem Ipsum", "role": "Dolor Sit", "current": true },
+      { "company": "Amet Consectetur", "role": "Adipiscing Elit" },
+      { "company": "Sed Do", "role": "Eiusmod Tempor" }
+    ],
+    "detail": {
+      "label": "Lorem ipsum · Dolor sit",
+      "title": "Consectetur adipiscing elit, sed do eiusmod tempor.",
+      "paragraphs": [
+        "Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
+        "Ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
+      ]
+    }
+  },
+  "about": {
+    "title": "Lorem ipsum dolor sit.",
+    "paragraphs": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    ]
+  }
+}
