@@ -146,7 +146,7 @@ const AsciiAtmosphere = forwardRef<AsciiAtmosphereHandle, { settings: FluidSetti
     return () => sketch.remove()
   }, [])
 
-  return <div ref={hostRef} className="ascii-atmosphere" role="img" aria-label="Interactive ASCII atmosphere" />
+  return <div ref={hostRef} className="absolute inset-0 size-full" role="img" aria-label="Interactive ASCII atmosphere" />
 })
 
 export default AsciiAtmosphere
