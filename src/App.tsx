@@ -4,6 +4,7 @@ import { asciiAtmosphereConfig, controlRangeFor, createAsciiAtmosphereConfig, fl
 import { profile } from './content/profile'
 
 const lifetimeControl = asciiAtmosphereConfig.trailControls.find((control) => control.key === 'lifetime')!
+const showAtmosphereLabs = import.meta.env.DEV
 
 export default function App() {
   const heroRef = useRef<HTMLElement>(null)
@@ -109,6 +110,7 @@ export default function App() {
             {profile.currentFocus.items.map((item) => <li key={item}>{item}</li>)}
           </ul>
         </aside>
+        {showAtmosphereLabs ? <>
         <details className="trail-lab" onPointerMove={keepLabInputOutOfAtmosphere} onPointerDown={keepLabInputOutOfAtmosphere}>
           <summary>Trail lab <span>tinker with it</span></summary>
           {asciiAtmosphereConfig.trailControls.map(({ key, label, min, max }) => (
@@ -166,6 +168,7 @@ export default function App() {
             ))}
           </details>
         </details>
+        </> : null}
       </section>
 
       <section className="experience" id="experience" aria-labelledby="experience-title">
